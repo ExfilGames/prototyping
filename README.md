@@ -2,7 +2,7 @@
 Godot Prototyping materials based on [Kenney's](https://www.kenney.nl/assets/prototype-textures) prototyping textures
 
 ## Demo Scene
-![demo.png](https://raw.githubusercontent.com/ExfilGames/prototyping/main/demo.png))
+![demo.png](https://raw.githubusercontent.com/ExfilGames/prototyping/main/demo.png)
 
 ## License
 MIT License
