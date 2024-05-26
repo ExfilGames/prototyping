@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://d2y6tloxoij2f"]
+
+[ext_resource type="Material" uid="uid://cw7jr31dthbvl" path="res://materials/dark.tres" id="1_1m54s"]
+[ext_resource type="Material" uid="uid://qcturbjm44dp" path="res://materials/green.tres" id="2_e68f6"]
+[ext_resource type="Material" uid="uid://bni4y81b1wqhf" path="res://materials/light.tres" id="3_shkg2"]
+[ext_resource type="Material" uid="uid://cq5kjakt74rsh" path="res://materials/orange.tres" id="4_q84dm"]
+[ext_resource type="Material" uid="uid://cfjwiixocaad0" path="res://materials/purple.tres" id="5_lc3rh"]
+[ext_resource type="Material" uid="uid://ct4k7u0rr253c" path="res://materials/red.tres" id="6_s7m8u"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_bfc2r"]
+
+[sub_resource type="Sky" id="Sky_hqolm"]
+sky_material = SubResource("PhysicalSkyMaterial_bfc2r")
+
+[sub_resource type="Environment" id="Environment_u3ayu"]
+background_mode = 2
+sky = SubResource("Sky_hqolm")
+ambient_light_source = 3
+
+[node name="demo" type="Node3D"]
+
+[node name="camera" type="Camera3D" parent="."]
+transform = Transform3D(0.631325, 0.424055, -0.649312, 0, 0.837262, 0.546802, 0.775518, -0.34521, 0.528584, -2.55059, 1.85295, 2.81496)
+
+[node name="combiner" type="CSGCombiner3D" parent="."]
+
+[node name="dark" type="CSGBox3D" parent="combiner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2)
+material_override = ExtResource("1_1m54s")
+material = ExtResource("1_1m54s")
+
+[node name="green" type="CSGBox3D" parent="combiner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+material_override = ExtResource("2_e68f6")
+material = ExtResource("2_e68f6")
+
+[node name="light" type="CSGBox3D" parent="combiner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
+material_override = ExtResource("3_shkg2")
+material = ExtResource("3_shkg2")
+
+[node name="orange" type="CSGBox3D" parent="combiner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
+material_override = ExtResource("2_e68f6")
+material = ExtResource("4_q84dm")
+
+[node name="purple" type="CSGBox3D" parent="combiner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+material_override = ExtResource("5_lc3rh")
+material = ExtResource("5_lc3rh")
+
+[node name="red" type="CSGBox3D" parent="combiner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+material_override = ExtResource("6_s7m8u")
+material = ExtResource("6_s7m8u")
+
+[node name="environment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_u3ayu")
+
+[node name="sunlight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
